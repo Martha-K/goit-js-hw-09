@@ -12,14 +12,14 @@ function formSubmit(event) {
   const stepNumber = Number(step.value);
   const amountNumber = Number(amount.value);
 
-  for (let i = 1; i <= amountNumber; i++) {
+  for (let i = 0; i <= amountNumber -1; i++) {
     let currentDelay = stepNumber * i + delayNumber;
     createPromise(i, currentDelay)
       .then(([i, currentDelay]) => {
-        console.log(`✅ Fulfilled promise ${i} in ${currentDelay} ms`);
+        console.log(`✅ Fulfilled promise ${i+1} in ${currentDelay} ms`);
       })
       .catch(([i, currentDelay]) => {
-        console.log(`❌ Rejected promise ${i} in ${currentDelay} ms`);
+        console.log(`❌ Rejected promise ${i+1} in ${currentDelay} ms`);
       });
   }
 }
